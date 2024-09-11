@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/11 10:47:38 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/11 14:31:09 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,12 @@ CHECK_MARK = ✔
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(MLX)
-	@$(CC) $(OBJ) -LLibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib \
-	-lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(OBJ) -LLibft -lft -Lminilibx-linux -lmlx_Linux \
+	-lXext -lX11 -lm -o $(NAME)
 	@echo "$(NAME) a été créé avec succès ($(CHECK_MARK))"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I/usr/include -Iminilibx-linux -ILibft -c $< -o $@
+	@$(CC) $(CFLAGS) -Iminilibx-linux -ILibft -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
@@ -45,14 +45,15 @@ $(MLX):
 	@echo "Compilation de la minilibX ($(CHECK_MARK))"
 
 clean:
-	$(ECHO)make clean -C Libft --silent --no-print-directory
-	$(ECHO)rm -rf $(OBJ_DIR) $(OBJ_BONUS_DIR)
-	@echo "Nettoyage réussi ($(COMP_SUCCESS))"
+	@make clean -C Libft --silent --no-print-directory
+	@rm -rf $(OBJ_DIR)
+	@echo "Nettoyage réussi ($(CHECK_MARK))"
 
-fclean: clean
-	$(ECHO)rm -f $(NAME)
-	$(ECHO)rm -f Libft/libft.a
-	@echo "Nettoyage complet réussi ($(COMP_SUCCESS))"
+fclean:
+	@rm -f $(NAME)
+	@make fclean -C Libft --silent --no-print-directory
+	@rm -rf $(OBJ_DIR)
+	@echo "Nettoyage complet réussi ($(CHECK_MARK))"
 
 re: fclean all
 
