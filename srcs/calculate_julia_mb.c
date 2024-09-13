@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   float_utils.c                                      :+:      :+:    :+:   */
+/*   calculate_julia_mb.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 14:34:48 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/11 14:39:08 by gozon            ###   ########.fr       */
+/*   Created: 2024/09/13 09:35:36 by gozon             #+#    #+#             */
+/*   Updated: 2024/09/13 10:52:24 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-double	ft_atoi(const char *nptr)
+double	calculate_julia_mb(t_vars vars, t_complex z0)
 {
-	size_t	i;
-	long	nbr;
-	long	sign;
+	t_complex	zn;
+	int			i;
 
-	i = 0;
-	nbr = 0;
-	sign = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
-		sign = -1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		i++;
-	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
+	zn = z0;
+	while (i < vars.iterations)
 	{
-		nbr = 10 * nbr + sign * (nptr[i] - '0');
-		if (nbr > 2147483647 || nbr < -2147483648)
+		if (mod_square(zn) > vars.threshold_square)
 			return (0);
+		zn = add_complex(multiply_complex(zn, zn), vars.c);
 		i++;
 	}
-	return ((int) nbr);
+	return (mod_square(zn));
 }

@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/11 14:31:09 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/13 10:44:00 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
-SRC = srcs/main.c
+SRC = srcs/window.c
 OBJ_DIR = objects
 SRC_DIR = srcs
 MLX= minilibx-linux/libmlx_Linux.a
@@ -31,7 +31,7 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@echo "$(NAME) a été créé avec succès ($(CHECK_MARK))"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -Iminilibx-linux -ILibft -c $< -o $@
+	@$(CC) $(CFLAGS) -Iminilibx-linux -ILibft -Iincludes -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
