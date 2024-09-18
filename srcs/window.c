@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:23:52 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 13:21:43 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:18:46 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,16 @@ t_mlx	*init_mlx_struct(void)
 		return (perror("malloc"), NULL);
 	mlx->mlx = NULL;
 	mlx->window = NULL;
-	mlx->addr = NULL;
-	mlx->img = NULL;
-	mlx->bits_per_pixel = 0;
-	mlx->endian = 0;
-	mlx->step = 0;
-	mlx->upper_left_corner.real = 0;
-	mlx->upper_left_corner.imaginary = 0;
+	mlx->img.img = NULL;
+	return (mlx);
 }
 
 int	close_window(void *mlx_void)
 {
 	t_mlx	*mlx;
 
-	mlx = (t_mlx *)mlx;
-	mlx_destroy_image(mlx->mlx, mlx->img);
+	mlx = (t_mlx *)mlx_void;
+	mlx_destroy_image(mlx->mlx, mlx->img.img);
 	mlx_destroy_window(mlx->mlx, mlx->window);
 	mlx_destroy_display(mlx->mlx);
 	free(mlx->mlx);
@@ -43,7 +38,7 @@ int	close_window(void *mlx_void)
 	exit(0);
 }
 
-t_mlx	*create_window(t_vars vars)
+t_mlx	*create_window(void)
 {
 	t_mlx	*mlx;
 
@@ -57,5 +52,5 @@ t_mlx	*create_window(t_vars vars)
 			"fract'ol");
 	if (!mlx->window)
 		return (perror("mlx_new_window"), close_window(mlx), NULL);
-	return (NULL);
+	return (mlx);
 }

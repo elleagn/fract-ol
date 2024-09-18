@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:39:52 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 12:42:45 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/18 13:26:10 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	mlx = create_window(vars);
 	if (!mlx)
 		return (1);
-	draw_fractal(vars, mlx);
+	draw_fractal(vars, mlx, 0);
 	mlx_hooks(vars, mlx);
 	mlx_loop(mlx->mlx);
 	return (0);

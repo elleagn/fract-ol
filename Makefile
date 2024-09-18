@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/18 10:24:34 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/18 15:13:04 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,11 @@ NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
-SRC = srcs/complex_arithmetic.c srcs/tests_graphics.c
+SRC = srcs/calculate_julia_mb.c \
+	srcs/color_image.c \
+	srcs/complex_arithmetic.c \
+	srcs/draw_fractal.c \
+	srcs/window.c
 OBJ_DIR = objects
 SRC_DIR = srcs
 MLX= minilibx-linux/libmlx_Linux.a
