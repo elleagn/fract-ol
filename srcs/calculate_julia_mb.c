@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 09:35:36 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/16 17:01:32 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/18 09:24:04 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	calc_jmb(t_complex z0, t_complex c, int its, double threshold)
 		zn = add_complex(multiply_complex(zn, zn), c);
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
 // #include <stdio.h>

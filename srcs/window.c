@@ -6,42 +6,56 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:23:52 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/16 17:18:10 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/18 13:21:43 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int	close_window(void **param)
+t_mlx	*init_mlx_struct(void)
 {
-	mlx_destroy_image(param[0], param[2]);
-	mlx_destroy_window(param[0], param[1]);
-	mlx_destroy_display(param[0]);
-	free(param[0]);
+	t_mlx	*mlx;
+
+	mlx = malloc(sizeof(t_mlx));
+	if (!mlx)
+		return (perror("malloc"), NULL);
+	mlx->mlx = NULL;
+	mlx->window = NULL;
+	mlx->addr = NULL;
+	mlx->img = NULL;
+	mlx->bits_per_pixel = 0;
+	mlx->endian = 0;
+	mlx->step = 0;
+	mlx->upper_left_corner.real = 0;
+	mlx->upper_left_corner.imaginary = 0;
+}
+
+int	close_window(void *mlx_void)
+{
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)mlx;
+	mlx_destroy_image(mlx->mlx, mlx->img);
+	mlx_destroy_window(mlx->mlx, mlx->window);
+	mlx_destroy_display(mlx->mlx);
+	free(mlx->mlx);
+	free(mlx);
 	exit(0);
 }
 
-int	main(void)
+t_mlx	*create_window(t_vars vars)
 {
-	void	*params[3];
-	t_img	img;
-	t_vars	vars;
+	t_mlx	*mlx;
 
-	params[0] = mlx_init();
-	params[1] = mlx_new_window(params[0], IMAGE_WIDTH, IMAGE_HEIGHT, "test");
-	params[2] = mlx_new_image(params[0], IMAGE_WIDTH, IMAGE_HEIGHT);
-	img.addr = mlx_get_data_addr(params[2], &img.bits_per_pixel,
-			&img.line_length, &img.endian);
-	img.upper_left_corner.real = -IMAGE_WIDTH / 200;
-	img.upper_left_corner.imaginary = IMAGE_HEIGHT / 200;
-	img.step = 0.01;
-	vars.c.real = -0.8;
-	vars.c.imaginary = 0.156;
-	vars.threshold = 4;
-	vars.iterations = 1000;
-	color_image(img, vars);
-	mlx_put_image_to_window(params[0], params[1], params[2], 0, 0);
-	mlx_hook(params[1], 17, (1L << 17), close_window, params);
-	mlx_loop(params[0]);
-	return (0);
+	mlx = init_mlx_struct();
+	if (!mlx)
+		return (0);
+	mlx->mlx = mlx_init();
+	if (!mlx->mlx)
+		return (perror("mlx_init"), close_window(mlx), NULL);
+	mlx->window = mlx_new_window(mlx->mlx, IMAGE_WIDTH, IMAGE_HEIGHT,
+			"fract'ol");
+	if (!mlx->window)
+		return (perror("mlx_new_window"), close_window(mlx), NULL);
+	return (NULL);
 }
