@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:37:45 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 15:42:43 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/18 17:34:11 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ t_img	create_new_img(t_img img, t_vars vars, double zoom, t_mlx *mlx)
 {
 	t_img	new_img;
 
-	new_img.img = mlx_new_image(mlx->mlx, IMAGE_WIDTH, IMAGE_HEIGHT);
 	if (!new_img.img)
 		return (perror("mlx_new_image"), close_window(mlx), img);
 	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel,
 			&new_img.line_length, &new_img.endian);
 	if (zoom == 0)
 	{
+		new_img.img = mlx_new_image(mlx->mlx, IMAGE_WIDTH, IMAGE_HEIGHT);
 		new_img.upper_left_corner.imaginary = sqrt(vars.threshold);
 		new_img.upper_left_corner.real = -IMAGE_WIDTH
 			* new_img.upper_left_corner.imaginary / IMAGE_HEIGHT;
@@ -31,6 +31,7 @@ t_img	create_new_img(t_img img, t_vars vars, double zoom, t_mlx *mlx)
 	}
 	else
 	{
+		new_img = img;
 		new_img.upper_left_corner.real
 			= img.upper_left_corner.real / zoom;
 		new_img.upper_left_corner.imaginary
@@ -48,7 +49,11 @@ void	draw_fractal(t_mlx *mlx, t_vars vars, double zoom)
 	color_image(new_img, vars);
 	mlx_put_image_to_window(mlx->mlx, mlx->window, new_img.img, 0, 0);
 	if (mlx->img.img)
+	{
+		ft_printf("before destruction");
 		mlx_destroy_image(mlx->mlx, mlx->img.img);
+		ft_printf("before destruction");
+	}
 	mlx->img = new_img;
 }
 
@@ -68,7 +73,7 @@ int	main(void)
 	if (!mlx)
 		return (1);
 	draw_fractal(mlx, vars, 0);
-	mlx_hook(mlx->window, 17, (1L << 17), close_window, mlx);
+	mlx_hooks(mlx, vars);
 	mlx_loop(mlx->mlx);
 	return (0);
 }
