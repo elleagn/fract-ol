@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_images.c                                      :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/18 17:27:32 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 17:43:35 by gozon            ###   ########.fr       */
+/*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
+/*   Updated: 2024/09/19 14:58:12 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include <fractol.h>
 
-int	main(void)
+t_vars	parsing(int argc, char **argv)
 {
-	void	*mlx;
-	void	*img1;
-	void	*img2;
-	void	*window;
+	t_vars	vars;
 
-	mlx = mlx_init();
-	window = mlx_new_window(mlx, 500, 500, "hello");
-	img1 = mlx_new_image(mlx, 500, 500);
-	mlx_put_image_to_window(mlx, window, img1, 0, 0);
-	img2 = mlx_new_image(mlx, 500, 500);
-	mlx_destroy_image(mlx, img1);
-	mlx_put_image_to_window(mlx, window, img2, 0, 0);
+	if (!ft_strncmp(argv[1], "mandelbrot", 11))
+		vars = init_mandelbrot(&argv[2]);
+	else if (!ft_strncmp(argv[1], "julia", 6))
+		vars = init_julia(&argv[2]);
+	else
+	{
+		ft_printf("Fractal name unrecognized. Usage: \n"
+			"./mandelbrot\n"
+			"./julia a b (julia set of parameter a + ib)\n");
+		return ()
+	}
 }

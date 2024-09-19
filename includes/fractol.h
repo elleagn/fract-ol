@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 16:24:38 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/19 10:45:31 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define IMAGE_WIDTH 800
 # define IMAGE_HEIGHT 600
-# define COLOR 0x34ebdbu
+# define COLOR 0xacc7f2
 
 // Events and masks
 
@@ -70,6 +70,12 @@ typedef struct s_vars
 	char		type;
 }	t_vars;
 
+typedef struct s_params
+{
+	t_mlx	*mlx;
+	t_vars	vars;
+}	t_params;
+
 // Complex arithmetic
 
 t_complex	add_complex(t_complex z1, t_complex z2);
@@ -89,6 +95,6 @@ void		draw_fractal(t_mlx *mlx, t_vars vars, double zoom);
 
 t_mlx		*create_window(void);
 int			close_window(void *mlx_void);
-void		mlx_hooks(t_mlx *mlx, t_vars vars);
+void		mlx_hooks(t_params params);
 
 #endif
