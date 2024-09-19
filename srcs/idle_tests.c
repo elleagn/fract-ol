@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:45:54 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 13:50:28 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/19 15:02:11 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	main(void)
 {
-	ft_printf("%i\n", ft_strncmp("mandelbrot", "mandelbrot", 11));
+	ft_printf("Fractal name unrecognized. Usage: \n"
+		"./mandelbrot\n"
+		"./julia a b (julia set of parameter a + ib)\n");
 	return (0);
 }
