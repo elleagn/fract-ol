@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:37:45 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 13:38:19 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/20 11:55:02 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,4 @@ void	draw_fractal(t_mlx *mlx, t_vars vars, double zoom)
 	if (mlx->img.img)
 		mlx_destroy_image(mlx->mlx, mlx->img.img);
 	mlx->img = new_img;
-}
-
-int	main(void)
-{
-	t_params	params;
-
-	params.vars.c.real = 0;
-	params.vars.c.imaginary = 0;
-	params.vars.iterations = 1000;
-	params.vars.threshold = 4;
-	params.vars.type = 'm';
-	if (params.vars.type == 0)
-		return (1);
-	params.mlx = create_window();
-	if (!params.mlx)
-		return (1);
-	draw_fractal(params.mlx, params.vars, 0);
-	mlx_hooks(params);
-	mlx_loop(params.mlx->mlx);
-	return (0);
 }

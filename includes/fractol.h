@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 10:45:31 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/20 11:56:47 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,10 @@ void		draw_fractal(t_mlx *mlx, t_vars vars, double zoom);
 t_mlx		*create_window(void);
 int			close_window(void *mlx_void);
 void		mlx_hooks(t_params params);
+
+// Parsing
+double		choose_threshold(t_complex c);
+t_complex	atocomplex(char *real, char *imaginary);
+t_vars		parsing(int argc, char **argv);
 
 #endif

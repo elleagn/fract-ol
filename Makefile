@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/18 16:25:25 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/20 11:59:52 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ SRC = srcs/calculate_julia_mb.c \
 	srcs/complex_arithmetic.c \
 	srcs/draw_fractal.c \
 	srcs/window.c \
-	srcs/hooks.c
+	srcs/hooks.c \
+	srcs/main.c \
+	srcs/parsing.c \
+	srcs/parsing_utils.c
 OBJ_DIR = objects
 SRC_DIR = srcs
 MLX= minilibx-linux/libmlx_Linux.a

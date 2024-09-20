@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 15:23:27 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/20 12:03:11 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ t_vars	init_mandelbrot(char **argv)
 {
 	t_vars	vars;
 
-	if (argv[0])
+	if (argv[2])
 	{
-		ft_printf("Mandelbrot set does not take any parameters.\n"
-			"Try : ./fractol mandelbrot\n");
+		ft_printf("Mandelbrot set does not take any parameters.\n");
 		vars.type = 0;
 	}
 	else
@@ -31,6 +30,29 @@ t_vars	init_mandelbrot(char **argv)
 	return (vars);
 }
 
+int	valid_argument(char *arg)
+{
+	int	i;
+	int	point;
+
+	i = 0;
+	point = 0;
+	if ((arg[i] == '+' || arg[i] == '-') && ft_isdigit(arg[i + 1]))
+		i++;
+	while (arg[i])
+	{
+		if (!ft_isdigit(arg[i]))
+		{
+			if (arg[i] == '.' && !point)
+				point = 1;
+			else
+				return (0);
+		}
+		i++;
+	}
+	return (i);
+}
+
 t_vars	init_julia(int argc, char **argv)
 {
 	t_vars	vars;
@@ -38,11 +60,24 @@ t_vars	init_julia(int argc, char **argv)
 	if (argc != 4)
 	{
 		vars.type = 0;
-		ft_printf("Wrong number of arguments for julia set.\n"
-			"Usage: ./fractol julia a b (a, b floats representing \n"
-			"the parameter a + ib)\n");
+		ft_printf("Wrong number of arguments for julia set.\n");
 	}
 	else
+	{
+		if (!valid_argument(argv[2]) || !valid_argument(argv[3]))
+		{
+			vars.type = 0;
+			ft_printf("Invalid arguments for julia set.\n");
+		}
+		else
+		{
+			vars.c = atocomplex(argv[2], argv[3]);
+			vars.iterations = 1000;
+			vars.threshold = choose_threshold(vars.c);
+			vars.type = 'j';
+		}
+	}
+	return (vars);
 }
 
 t_vars	parsing(int argc, char **argv)
@@ -50,9 +85,9 @@ t_vars	parsing(int argc, char **argv)
 	t_vars	vars;
 
 	if (!ft_strncmp(argv[1], "mandelbrot", 11))
-		vars = init_mandelbrot(&argv[2]);
+		vars = init_mandelbrot(argv);
 	else if (!ft_strncmp(argv[1], "julia", 6))
-		vars = init_julia(argc, &argv[2]);
+		vars = init_julia(argc, argv);
 	else
 	{
 		ft_printf("Fractal name unrecognized. Usage: \n"
