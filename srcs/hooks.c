@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 16:07:02 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 11:33:37 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 09:32:07 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	zoom(int button, int x, int y, void *params_void)
 	t_vars		vars;
 	t_params	params;
 
-	(void) x;
-	(void) y;
+	(void)x;
+	(void)y;
 	params = *(t_params *)params_void;
 	vars = params.vars;
 	mlx = params.mlx;

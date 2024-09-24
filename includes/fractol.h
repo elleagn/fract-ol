@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/20 11:56:47 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 09:31:16 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@
 # include <math.h>
 # include <stdio.h>
 
-// Image params
-
 # define IMAGE_WIDTH 800
 # define IMAGE_HEIGHT 600
-# define COLOR 0xacc7f2
+# define COLOR 0X51A09C
+# define ITERATIONS 100
 
-// Events and masks
+// Masks and events
 
 # define DESTROY_NOTIFY 17
-# define FOCUS_IN 9
-# define FOCUS_OUT 10
 
 typedef struct s_complex
 {
@@ -90,6 +87,7 @@ int			calc_jmb(t_complex z0, t_complex c, int it, double thresh_sq);
 
 void		color_image(t_img img, t_vars vars);
 void		draw_fractal(t_mlx *mlx, t_vars vars, double zoom);
+int			affine(int color1, int color2, int interval, int it);
 
 // Mlx objects
 

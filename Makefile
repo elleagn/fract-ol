@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/20 11:59:52 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/23 14:46:12 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = srcs/calculate_julia_mb.c \
 	srcs/hooks.c \
 	srcs/main.c \
 	srcs/parsing.c \
-	srcs/parsing_utils.c
+	srcs/parsing_utils.c \
+	srcs/affine.c
 OBJ_DIR = objects
 SRC_DIR = srcs
 MLX= minilibx-linux/libmlx_Linux.a

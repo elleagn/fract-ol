@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:14:13 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/19 13:44:10 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 09:30:37 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ unsigned int	get_pixel_color(t_pixel pixel, t_vars vars)
 		it = calc_jmb(pixel.complex, vars.c, vars.iterations, vars.threshold);
 	if (vars.type == 'm')
 		it = calc_jmb(zero, pixel.complex, vars.iterations, vars.threshold);
-	return (it * COLOR);
+	return (it * 0x3c00ff);
 }
 
 void	image_pixel_put(t_img img, t_pixel pixel, unsigned int color)

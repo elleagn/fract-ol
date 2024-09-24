@@ -6,11 +6,19 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:37:45 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/20 11:55:02 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 09:29:58 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
+
+void	init_img(t_img *img, t_vars vars)
+{
+	img->upper_left_corner.imaginary = sqrt(vars.threshold);
+	img->upper_left_corner.real = -IMAGE_WIDTH
+		* img->upper_left_corner.imaginary / IMAGE_HEIGHT;
+	img->step = -2 * img->upper_left_corner.real / IMAGE_WIDTH;
+}
 
 t_img	create_new_img(t_img img, t_vars vars, double zoom, t_mlx *mlx)
 {
@@ -22,13 +30,7 @@ t_img	create_new_img(t_img img, t_vars vars, double zoom, t_mlx *mlx)
 	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel,
 			&new_img.line_length, &new_img.endian);
 	if (zoom == 0)
-	{
-		new_img.upper_left_corner.imaginary = sqrt(vars.threshold);
-		new_img.upper_left_corner.real = -IMAGE_WIDTH
-			* new_img.upper_left_corner.imaginary / IMAGE_HEIGHT;
-		new_img.step = -2 * new_img.upper_left_corner.real / IMAGE_WIDTH;
-		printf("%f \n", new_img.step);
-	}
+		init_img(&new_img, vars);
 	else
 	{
 		new_img.upper_left_corner.real

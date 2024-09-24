@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 09:35:36 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/18 09:24:04 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/23 10:17:51 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	calc_jmb(t_complex z0, t_complex c, int its, double threshold)
 	while (i < its)
 	{
 		if (mod_square(zn) > threshold)
-			return (i);
+			return (i + 1);
 		zn = add_complex(multiply_complex(zn, zn), c);
 		i++;
 	}
