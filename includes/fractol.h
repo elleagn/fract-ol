@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/24 09:31:16 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 11:42:46 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@
 // Masks and events
 
 # define DESTROY_NOTIFY 17
+# define BUTTON_PRESS 4
+# define KEY_PRESS 2
+
+// Keys
+
+# define ESC 65307
+# define LEFT_ARROW 65361
+# define UP_ARROW 65362
+# define RIGHT_ARROW 65363
+# define DOWN_ARROW 65364
 
 typedef struct s_complex
 {
@@ -86,8 +96,13 @@ int			calc_jmb(t_complex z0, t_complex c, int it, double thresh_sq);
 // Image manipulation
 
 void		color_image(t_img img, t_vars vars);
-void		draw_fractal(t_mlx *mlx, t_vars vars, double zoom);
+void		draw_fractal(t_mlx *mlx, t_vars vars, t_complex ulc, double step);
 int			affine(int color1, int color2, int interval, int it);
+
+// Transformations
+
+t_complex	calculate_ulc_zoom(int x, int y, int button, t_img img);
+t_complex	translate_ulc(t_img img, int keycode);
 
 // Mlx objects
 
