@@ -6,19 +6,11 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:37:45 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/24 10:11:10 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:51:32 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
-
-void	init_img(t_img *img, t_vars vars)
-{
-	img->upper_left_corner.imaginary = sqrt(vars.threshold);
-	img->upper_left_corner.real = -IMAGE_WIDTH
-		* img->upper_left_corner.imaginary / IMAGE_HEIGHT;
-	img->step = -2 * img->upper_left_corner.real / IMAGE_WIDTH;
-}
 
 t_img	create_new_img(t_complex ulc, double step, t_mlx *mlx)
 {
@@ -31,6 +23,10 @@ t_img	create_new_img(t_complex ulc, double step, t_mlx *mlx)
 			&img.endian);
 	img.upper_left_corner = ulc;
 	img.step = step;
+	if (!mlx->img.img)
+		img.color = COLOR;
+	else
+		img.color = (mlx->img.color * 10) % 0xffffff;
 	return (img);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/24 11:42:46 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/24 12:41:57 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_img
 	int			endian;
 	t_complex	upper_left_corner;
 	double		step;
+	int			color;
 }	t_img;
 
 typedef struct s_mlx
