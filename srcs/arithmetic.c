@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:34:48 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 08:16:12 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:55:24 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,4 @@ t_complex	multiply_complex(t_complex z1, t_complex z2)
 double	mod_square(t_complex z)
 {
 	return (pow(z.real, 2) + pow(z.imaginary, 2));
-}
-
-double	ft_abs(double x)
-{
-	if (x < 0)
-		return (-x);
-	return (x);
 }

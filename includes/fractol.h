@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:21:42 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:05:22 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_img
 	int			endian;
 	t_complex	upper_left_corner;
 	double		step;
-	int			color;
 }	t_img;
 
 typedef struct s_mlx
@@ -94,19 +93,11 @@ double		ft_abs(double x);
 // Sequence calculations
 
 int			calc_jmb(t_complex z0, t_complex c, int it, double thresh_sq);
-int			calculate_burning_ship(t_complex c);
-int			calculate_birds_of_prey(t_complex c);
 
 // Image manipulation
 
 void		color_image(t_img img, t_vars vars);
 void		draw_fractal(t_mlx *mlx, t_vars vars, t_complex ulc, double step);
-int			affine(int color1, int color2, int interval, int it);
-
-// Transformations
-
-t_complex	calculate_ulc_zoom(int x, int y, int button, t_img img);
-t_complex	translate_ulc(t_img img, int keycode);
 
 // Mlx objects
 
@@ -118,8 +109,6 @@ void		mlx_hooks(t_params params);
 double		choose_threshold(t_complex c);
 t_complex	atocomplex(char *real, char *imaginary);
 t_vars		parsing(int argc, char **argv);
-t_vars		init_burningship(char **argv);
-t_vars		init_birdsofprey(char **argv);
 void		parsing_error(t_vars *vars);
 
 #endif

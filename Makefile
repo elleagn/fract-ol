@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/25 10:53:01 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/25 11:06:57 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ SRC = srcs/calculate_fractal.c \
 	srcs/hooks.c \
 	srcs/main.c \
 	srcs/parsing.c \
-	srcs/parsing_utils.c \
-	srcs/transformations.c
+	srcs/parsing_utils.c
 SRC_BONUS = srcs_bonus/calculate_fractal_bonus.c \
 	srcs_bonus/color_image_bonus.c \
 	srcs_bonus/arithmetic_bonus.c \

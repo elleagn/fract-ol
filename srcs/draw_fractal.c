@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:37:45 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:24:01 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:56:05 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ t_img	create_new_img(t_complex ulc, double step, t_mlx *mlx)
 			&img.endian);
 	img.upper_left_corner = ulc;
 	img.step = step;
-	if (!mlx->img.img)
-		img.color = COLOR;
-	else
-		img.color = (mlx->img.color * 10) % 0xffffff;
 	return (img);
 }
 

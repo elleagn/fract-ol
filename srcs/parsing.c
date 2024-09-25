@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:00:45 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:05:12 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	parsing_error(t_vars *vars)
 	ft_printf("Wrong argument format. Usage:\n"
 		"./fractol mandelbrot\n"
 		"./fractol julia a b (julia set of parameter a + ib)\n"
-		"./fractol burning_ship"
-		"./fractol birds_of_prey");
+		);
 	vars->type = 0;
 }
 
@@ -87,10 +86,6 @@ t_vars	parsing(int argc, char **argv)
 
 	if (!ft_strncmp(argv[1], "mandelbrot", 11))
 		vars = init_mandelbrot(argv);
-	else if (!ft_strncmp(argv[1], "burning_ship", 13))
-		vars = init_burningship(argv);
-	else if (!ft_strncmp(argv[1], "birds_of_prey", 14))
-		vars = init_birdsofprey(argv);
 	else if (!ft_strncmp(argv[1], "julia", 6))
 		vars = init_julia(argc, argv);
 	else
