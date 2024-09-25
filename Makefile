@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/24 10:11:57 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/25 08:49:33 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,16 @@ NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
-SRC = srcs/calculate_julia_mb.c \
+SRC = srcs/calculate_fractal.c \
 	srcs/color_image.c \
-	srcs/complex_arithmetic.c \
+	srcs/arithmetic.c \
 	srcs/draw_fractal.c \
 	srcs/window.c \
 	srcs/hooks.c \
 	srcs/main.c \
 	srcs/parsing.c \
 	srcs/parsing_utils.c \
+	srcs/parsing_utils_bonus.c \
 	srcs/transformations.c
 OBJ_DIR = objects
 SRC_DIR = srcs

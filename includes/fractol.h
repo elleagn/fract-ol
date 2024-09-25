@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/24 12:41:57 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 09:41:16 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,18 @@ typedef struct s_params
 	t_vars	vars;
 }	t_params;
 
-// Complex arithmetic
+// Arithmetic
 
 t_complex	add_complex(t_complex z1, t_complex z2);
 t_complex	multiply_complex(t_complex z1, t_complex z2);
 double		mod_square(t_complex z);
+double		ft_abs(double x);
 
 // Sequence calculations
 
 int			calc_jmb(t_complex z0, t_complex c, int it, double thresh_sq);
+int			calculate_burning_ship(t_complex c);
+int			calculate_birds_of_prey(t_complex c);
 
 // Image manipulation
 
@@ -115,5 +118,7 @@ void		mlx_hooks(t_params params);
 double		choose_threshold(t_complex c);
 t_complex	atocomplex(char *real, char *imaginary);
 t_vars		parsing(int argc, char **argv);
+t_vars		init_burningship(char **argv);
+t_vars		init_birdsofprey(char **argv);
 
 #endif

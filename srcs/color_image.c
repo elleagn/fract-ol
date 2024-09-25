@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:14:13 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/24 12:52:11 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 09:41:49 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ unsigned int	get_pixel_color(t_pixel pixel, t_vars vars, int color)
 		it = calc_jmb(pixel.complex, vars.c, vars.iterations, vars.threshold);
 	if (vars.type == 'm')
 		it = calc_jmb(zero, pixel.complex, vars.iterations, vars.threshold);
-	return ((it * color) % 0xffffff);
+	if (vars.type == 'b')
+		it = calculate_burning_ship(pixel.complex);
+	if (vars.type == 'p')
+		it = calculate_birds_of_prey(pixel.complex);
+	if (it == 0)
+		return (0);
+	return ((1000 * it + color) % 0xffffff);
 }
 
 void	image_pixel_put(t_img img, t_pixel pixel, unsigned int color)
