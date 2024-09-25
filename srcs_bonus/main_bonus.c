@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:39:52 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:39:13 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:51:42 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	t_complex	ulc;
 
 	if (argc < 2)
-		return (ft_printf("Not enough arguments"), 0);
+		return (parsing_error(NULL), 0);
 	params.vars = parsing(argc, argv);
 	if (params.vars.type == 0)
 		return (1);

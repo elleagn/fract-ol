@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 11:26:56 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:51:26 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	parsing_error(t_vars *vars)
 		"./fractol julia a b (julia set of parameter a + ib)\n"
 		"./fractol burning_ship"
 		"./fractol birds_of_prey");
-	vars->type = 0;
+	if (vars)
+		vars->type = 0;
 }
 
 t_vars	init_mandelbrot(char **argv)
