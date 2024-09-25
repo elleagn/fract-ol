@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:14:13 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 11:05:55 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:25:19 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ unsigned int	get_pixel_color(t_pixel pixel, t_vars vars)
 	zero.real = 0;
 	zero.imaginary = 0;
 	if (vars.type == 'j')
-		it = calc_jmb(pixel.complex, vars.c, vars.iterations, vars.threshold);
+		it = calc_jmb(pixel.complex, vars.c, ITERATIONS, vars.threshold);
 	if (vars.type == 'm')
-		it = calc_jmb(zero, pixel.complex, vars.iterations, vars.threshold);
+		it = calc_jmb(zero, pixel.complex, ITERATIONS, vars.threshold);
 	if (it == 0)
 		return (0);
 	return ((1000 * it + COLOR) % (0xffffff + 1));

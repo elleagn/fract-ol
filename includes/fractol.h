@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 11:05:22 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:36:16 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define IMAGE_WIDTH 800
 # define IMAGE_HEIGHT 600
-# define COLOR 0x000001
+# define COLOR 0xffa500
 # define ITERATIONS 100
 
 // Masks and events

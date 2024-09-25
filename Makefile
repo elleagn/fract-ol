@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/25 11:06:57 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/25 11:28:14 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,4 +89,6 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+re_bonus: fclean bonus
+
+.PHONY: all clean fclean re bonus re_bonus

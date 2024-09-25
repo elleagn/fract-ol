@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 11:05:12 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:25:54 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_vars	init_mandelbrot(char **argv)
 		parsing_error(&vars);
 	else
 	{
-		vars.iterations = 100;
 		vars.threshold = 4;
 		vars.type = 'm';
 	}
@@ -72,7 +71,6 @@ t_vars	init_julia(int argc, char **argv)
 		else
 		{
 			vars.c = atocomplex(argv[2], argv[3]);
-			vars.iterations = 1000;
 			vars.threshold = choose_threshold(vars.c);
 			vars.type = 'j';
 		}

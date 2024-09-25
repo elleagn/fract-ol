@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils_bonus.c                              :+:      :+:    :+:   */
+/*   parsing_additionals_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 08:44:36 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:39:13 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:26:43 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_vars	init_burningship(char **argv)
 	}
 	else
 	{
-		vars.iterations = 100;
 		vars.threshold = 4;
 		vars.type = 'b';
 	}
@@ -38,7 +37,6 @@ t_vars	init_birdsofprey(char **argv)
 		parsing_error(&vars);
 	else
 	{
-		vars.iterations = 100;
 		vars.threshold = 4;
 		vars.type = 'p';
 	}
