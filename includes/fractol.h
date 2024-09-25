@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 11:36:16 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 11:44:51 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef struct s_vars
 {
 	t_complex	c;
 	double		threshold;
-	int			iterations;
 	char		type;
 }	t_vars;
 
