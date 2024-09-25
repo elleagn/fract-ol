@@ -6,21 +6,28 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 13:39:19 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 09:39:23 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:00:45 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
+
+void	parsing_error(t_vars *vars)
+{
+	ft_printf("Wrong argument format. Usage:\n"
+		"./fractol mandelbrot\n"
+		"./fractol julia a b (julia set of parameter a + ib)\n"
+		"./fractol burning_ship"
+		"./fractol birds_of_prey");
+	vars->type = 0;
+}
 
 t_vars	init_mandelbrot(char **argv)
 {
 	t_vars	vars;
 
 	if (argv[2])
-	{
-		ft_printf("Mandelbrot set does not take any parameters.\n");
-		vars.type = 0;
-	}
+		parsing_error(&vars);
 	else
 	{
 		vars.iterations = 100;
@@ -58,17 +65,11 @@ t_vars	init_julia(int argc, char **argv)
 	t_vars	vars;
 
 	if (argc != 4)
-	{
-		vars.type = 0;
-		ft_printf("Wrong number of arguments for julia set.\n");
-	}
+		parsing_error(&vars);
 	else
 	{
 		if (!valid_argument(argv[2]) || !valid_argument(argv[3]))
-		{
-			vars.type = 0;
-			ft_printf("Invalid arguments for julia set.\n");
-		}
+			parsing_error(&vars);
 		else
 		{
 			vars.c = atocomplex(argv[2], argv[3]);
@@ -93,11 +94,6 @@ t_vars	parsing(int argc, char **argv)
 	else if (!ft_strncmp(argv[1], "julia", 6))
 		vars = init_julia(argc, argv);
 	else
-	{
-		ft_printf("Fractal name unrecognized. Usage: \n"
-			"./fractol mandelbrot\n"
-			"./fractol julia a b (julia set of parameter a + ib)\n");
-		vars.type = 0;
-	}
+		parsing_error(&vars);
 	return (vars);
 }

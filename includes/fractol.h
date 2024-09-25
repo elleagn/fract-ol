@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 09:41:16 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:01:37 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define IMAGE_WIDTH 800
 # define IMAGE_HEIGHT 600
-# define COLOR 0X51A09C
+# define COLOR 0x420420
 # define ITERATIONS 100
 
 // Masks and events
@@ -120,5 +120,6 @@ t_complex	atocomplex(char *real, char *imaginary);
 t_vars		parsing(int argc, char **argv);
 t_vars		init_burningship(char **argv);
 t_vars		init_birdsofprey(char **argv);
+void		parsing_error(t_vars *vars);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:14:13 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 09:41:49 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 09:50:18 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ unsigned int	get_pixel_color(t_pixel pixel, t_vars vars, int color)
 		it = calculate_birds_of_prey(pixel.complex);
 	if (it == 0)
 		return (0);
-	return ((1000 * it + color) % 0xffffff);
+	return ((1000 * it + color) % (0xffffff + 1));
 }
 
 void	image_pixel_put(t_img img, t_pixel pixel, unsigned int color)

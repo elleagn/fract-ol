@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 08:44:36 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 09:40:55 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:01:54 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_vars	init_burningship(char **argv)
 
 	if (argv[2])
 	{
-		ft_printf("Burning ship set does not take any parameters.\n");
+		parsing_error(&vars);
 		vars.type = 0;
 	}
 	else
@@ -35,10 +35,7 @@ t_vars	init_birdsofprey(char **argv)
 	t_vars	vars;
 
 	if (argv[2])
-	{
-		ft_printf("Birds of prey set does not take any parameters.\n");
-		vars.type = 0;
-	}
+		parsing_error(&vars);
 	else
 	{
 		vars.iterations = 100;
