@@ -6,11 +6,11 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:14:13 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:19:05 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:39:09 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include <fractol_bonus.h>
 
 t_pixel	init_first_pixel(t_img img)
 {

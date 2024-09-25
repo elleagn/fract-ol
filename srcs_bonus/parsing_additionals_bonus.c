@@ -6,11 +6,11 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 08:44:36 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:01:54 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:39:13 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include <fractol_bonus.h>
 
 t_vars	init_burningship(char **argv)
 {

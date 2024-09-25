@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:35:11 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/25 10:21:42 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/25 10:54:15 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include <libft.h>
 # include <mlx.h>
@@ -21,7 +21,7 @@
 
 # define IMAGE_WIDTH 800
 # define IMAGE_HEIGHT 600
-# define COLOR 0x000001
+# define COLOR 0x420420
 # define ITERATIONS 100
 
 // Masks and events
